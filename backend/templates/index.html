@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Chart</title>
+    <!-- Load Plotly from CDN -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Apple Stock Chart</h1>
+    <!-- Div to hold the chart -->
+    <div id="chart"></div>
+    <script>
+    const graphJSON = {{ graph_json | safe }};
+    Plotly.newPlot('chart', graphJSON.data, graphJSON.layout);
+    </script>
+
+</body>
+</html>

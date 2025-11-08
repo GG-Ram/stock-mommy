@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #fff5f7 0%, #ffe0e8 100%);
+  min-height: 100vh;
+  padding-top: 80px; /* Space for fixed navbar */
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+.page h2 {
+  color: #ff6b9d;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    padding-top: 140px; /* More space for two-row navbar on mobile */
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .page {
+    padding: 2rem;
+  }
+
+  .page h2 {
+    font-size: 1.5rem;
+  }
+
+  .page p {
+    font-size: 1rem;
+  }
+}
