@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-brand">
-          <h1>👶 Mommy Simulator</h1>
+          <h1>Avatar Exchange</h1>
         </div>
         
         <ul className="navbar-menu">
@@ -18,8 +18,18 @@ const Navbar = () => {
               to="/market" 
               className={`navbar-link ${location.pathname === '/market' ? 'active' : ''}`}
             >
-              <span className="icon">🛒</span>
+              <span className="icon">📈</span>
               <span>Market</span>
+            </Link>
+          </li>
+
+          <li className="navbar-item">
+            <Link 
+              to="/portfolio" 
+              className={`navbar-link ${location.pathname === '/portfolio' ? 'active' : ''}`}
+            >
+              <span className="icon">💼</span>
+              <span>Portfolio</span>
             </Link>
           </li>
           
