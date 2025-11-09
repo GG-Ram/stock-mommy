@@ -15,6 +15,7 @@ class Portfolio_Stock:
                 "name": self.stock_data.name,
                 "buyPrice": self.buyPrice
             },
+            "profit": self.stock_data.price - self.buyPrice
         }
 
 class User:

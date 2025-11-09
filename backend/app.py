@@ -3,6 +3,7 @@ from flask_cors import CORS
 from stock import Stock
 from user import User
 from shopdata import products
+from mommy import Mommy
 
 
 app = Flask(__name__)
@@ -21,6 +22,7 @@ STOCKS = {
     "TSLA": "Tesla Inc.",
 }
 new_user = User(balance=5000)
+new_mommy = Mommy()
 
 @app.route("/api/stocks")
 def get_stocks():
@@ -28,7 +30,7 @@ def get_stocks():
     for symbol, name in STOCKS.items():
         try:
             stock = Stock(symbol, name)
-            data = stock.last_n_minutes_data(100) #Change # of stocks here
+            data = stock.last_n_minutes_data(120) #Change # of stocks here
             if data:  # Only append if data is valid
                 result.append(data)
         except Exception as e:

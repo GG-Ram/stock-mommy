@@ -65,6 +65,9 @@ const Portfolio = () => {
                                             ${(position.shares * position.stock_data.buyPrice).toFixed(2)}
                                         </span>
                                     </div>
+                                    
+                                    
+                                    
                                 </div>
                             </div>
                         ))}
@@ -73,24 +76,6 @@ const Portfolio = () => {
                     <div className="empty-state">
                         <p>📈 No stocks in your portfolio yet!</p>
                         <p>Start trading to build your portfolio.</p>
-                    </div>
-                )}
-            </div>
-
-            <div className="inventory-section">
-                <h2>Accessories</h2>
-                {user.inventory && user.inventory.length > 0 ? (
-                    <div className="inventory-grid">
-                        {user.inventory.map((item, index) => (
-                            <div key={index} className="inventory-card">
-                                <span className="item-name">{item.name || 'Item'}</span>
-                            </div>
-                        ))}
-                    </div>
-                ) : (
-                    <div className="empty-state">
-                        <p>🛍️ No accessories yet!</p>
-                        <p>Visit the shop to buy items.</p>
                     </div>
                 )}
             </div>

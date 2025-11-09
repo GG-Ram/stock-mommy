@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { get } from '../util/util';
 
 /**
- * Custom hook for fetching stock data
+ * Custom hook for fetching stock data with real-time updates
  */
-export const useStockData = (refreshInterval = 30000) => {
+export const useStockData = (refreshInterval = 1000) => {
     const [stocks, setStocks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [lastUpdated, setLastUpdated] = useState(null);
+    const [isRefreshing, setIsRefreshing] = useState(false);
 
     useEffect(() => {
         fetchStockData();
@@ -17,15 +19,17 @@ export const useStockData = (refreshInterval = 30000) => {
 
     const fetchStockData = async () => {
         try {
-            setLoading(true);
+            setIsRefreshing(true);
             const data = await get('/stocks');
             setStocks(data);
             setError(null);
+            setLastUpdated(new Date());
         } catch (err) {
             console.error('Error fetching stock data:', err);
             setError('Failed to load stock data');
         } finally {
             setLoading(false);
+            setIsRefreshing(false);
         }
     };
 
@@ -33,6 +37,8 @@ export const useStockData = (refreshInterval = 30000) => {
         stocks,
         loading,
         error,
+        lastUpdated,
+        isRefreshing,
         fetchStockData
     };
 };
